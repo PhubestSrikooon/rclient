@@ -1,16 +1,14 @@
 # rclient
 
-A new Flutter project.
+A better client for e612 and r34 users
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is for study purpose and have no any relation with e621 and r34 website
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Feature
+- Flutter based application
+- Cross-Platform
+- Almost native performance
+- Branch download
+- Material U Ui
