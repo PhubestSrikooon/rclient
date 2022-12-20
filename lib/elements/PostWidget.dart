@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-
-import 'package:rclient/notifier.dart';
 
 class PostImageWidget extends StatefulWidget {
   final String? imageUrl;
@@ -36,12 +32,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
             // if image is loading, show a loading indicator
             // if image is loaded, show the image
             // if image is failed to load, show a error message
-            CachedNetworkImage(
-              imageUrl: widget.imageUrl ?? '',
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+            Image.network(widget.imageUrl ?? ''),
             // Text(widget.description ?? ''),
             // Text(widget.tags ?? ''),
             // Text(widget.artist ?? ''),

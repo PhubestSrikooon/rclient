@@ -51,6 +51,7 @@ class MyWidget extends StatefulWidget {
 class _MyWidgetState extends State<MyWidget> {
   int _selectedIndex = 0;
   int _minimumTabWidth = 1200;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

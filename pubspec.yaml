@@ -33,7 +33,6 @@ dependencies:
     sdk: flutter
   provider: ^5.0.0
   flutter_staggered_grid_view: any
-  cached_network_image: any
 
 
   # The following adds the Cupertino Icons font to your application.

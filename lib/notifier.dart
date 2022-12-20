@@ -8,6 +8,7 @@ class StaticNotifier extends ChangeNotifier {
   StaticNotifier._internal();
 
   int _minimumWidth = 768;
+  int _defaultLimit = 10;
 
   int get minimumWidth => _minimumWidth;
 
