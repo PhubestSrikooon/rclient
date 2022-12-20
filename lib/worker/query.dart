@@ -38,7 +38,7 @@ class Request {
     return await respond;
   }
 
-  Future<dynamic> getFromSource(int source, String tags) async {
+  Future<dynamic> getFromSource(int source, String tags, int page) async {
     var body = null;
     if (source == 0) {
       return await get(getUrl[source]['url'] +
@@ -47,7 +47,11 @@ class Request {
               tags.replaceAll(' ', '+') +
               '&' +
               getUrl[source]['query']['limit'] +
-              '=100')
+              '=10' +
+              '&' +
+              getUrl[source]['query']['pageid'] +
+              '=' +
+              page.toString())
           .then((value) => jsonDecode(value.body)['posts']);
     } else if (source == 1) {
       return await get(getUrl[source]['url'] +
@@ -56,7 +60,11 @@ class Request {
               tags.replaceAll(' ', '+') +
               '&' +
               getUrl[source]['query']['limit'] +
-              '=100')
+              '=100' +
+              '&' +
+              getUrl[source]['query']['pageid'] +
+              '=' +
+              page.toString())
           .then((value) => jsonDecode(value.body));
     } else {
       return await get(getUrl[source]['url'] +

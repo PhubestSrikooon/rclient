@@ -4,7 +4,8 @@ import 'package:rclient/elements/PostWidget.dart';
 import 'package:rclient/worker/query.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String? tags;
+  const HomePage({super.key, this.tags});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<dynamic> _refresh() async {
-    var response = await request.getFromSource(0, '');
+    var response = await request.getFromSource(0, widget.tags ?? '', 0);
     setState(() {
       _page = 0;
       _list = response;
@@ -38,10 +39,28 @@ class _HomePageState extends State<HomePage> {
     return response;
   }
 
+  Future<dynamic> _loadMore() async {
+    var response = await request.getFromSource(0, widget.tags ?? '', _page + 1);
+    setState(() {
+      _page++;
+      _list.addAll(response);
+    });
+    return response;
+  }
+
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-        onRefresh: _refresh,
+      onRefresh: _refresh,
+      child: NotificationListener<ScrollEndNotification>(
+        onNotification: (notification) {
+          if (notification.metrics.pixels ==
+              notification.metrics.maxScrollExtent) {
+            // The user has scrolled to the end of the list, so call the _loadMore function
+            _loadMore();
+          }
+          return false;
+        },
         child: _list.isNotEmpty
             ? MasonryGridView.builder(
                 scrollDirection: Axis.vertical,
@@ -62,6 +81,8 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _list.length)
             : Center(
                 child: CircularProgressIndicator(),
-              ));
+              ),
+      ),
+    );
   }
 }

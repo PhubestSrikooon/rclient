@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:rclient/elements/PaddingChip.dart';
 import 'package:rclient/notifier.dart';
+import 'home.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -55,6 +56,9 @@ class _SearchPageState extends State<SearchPage> {
                     PaddingChip(label: 'Tiger-Shark', onPressed: () {}),
                     PaddingChip(label: '2.9.1', onPressed: () {}),
                   ])),
+            ),
+            Expanded(
+              child: HomePage(tags: "roblox"),
             )
           ],
         ));

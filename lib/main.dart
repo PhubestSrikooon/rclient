@@ -74,12 +74,12 @@ class _MyWidgetState extends State<MyWidget> {
                     label: 'Home',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.thumb_up),
-                    label: 'Liked',
-                  ),
-                  NavigationDestination(
                     icon: Icon(Icons.search),
                     label: 'Search',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.thumb_up),
+                    label: 'Liked',
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.settings),
@@ -108,13 +108,13 @@ class _MyWidgetState extends State<MyWidget> {
                     padding: EdgeInsets.all(8),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Icons.thumb_up),
-                    label: Text('Liked'),
+                    icon: Icon(Icons.search),
+                    label: Text('Search'),
                     padding: EdgeInsets.all(8),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Icons.search),
-                    label: Text('Search'),
+                    icon: Icon(Icons.thumb_up),
+                    label: Text('Liked'),
                     padding: EdgeInsets.all(8),
                   ),
                   NavigationRailDestination(
