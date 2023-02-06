@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Request request = Request();
   List<dynamic> _list = [];
-  int _page = 1;
+  int _page = 0;
   ScrollController _scrollController = ScrollController();
 
   @override
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   Future<dynamic> _refresh() async {
     var response = await request.getFromSource(0, widget.tags ?? '', 0);
     setState(() {
-      _page = 1;
+      _page = 0;
       _list = response;
     });
     return response;
